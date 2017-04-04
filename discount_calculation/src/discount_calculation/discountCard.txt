@@ -1,0 +1,52 @@
+package discount_calculation;
+
+import java.util.Scanner;
+
+public class discountCard {
+	
+	public static double enterPrice(double p)  //price input
+	{
+		Scanner sc = new Scanner(System.in);   //scanner
+		System.out.println("Enter price: ");   //write line	
+		p = sc.nextDouble();                   //read line
+		return p;                              //return price value
+	}
+	
+	public static int enterNumber(int n)                 //number input
+	{
+		Scanner sc = new Scanner(System.in);             //scanner
+		System.out.println("Enter number of items: ");	 //write line
+		n = sc.nextInt();                                //read line
+		return n;                                        //return value
+	}
+	
+	public static double Summ(double s)                 //get total price
+	{
+		double price = 0;                               
+		int number = 0;
+		double sum;
+		sum = enterPrice(price) * enterNumber(number);  //multiplication of price by number
+		System.out.println("Total: " + sum + " rub.");  //write total price with no discount
+		return sum;                                     //return sum value
+		
+	}
+
+	public static void main(String[] args)                                   //discount calculating
+	{
+		double discount;
+		double total=0;
+
+		discount = Summ(total);
+		
+		/*
+		 * if total price is greater than or equal to 1000 the discount is 25%
+		 * otherwise there is no discount
+		 */
+		if (discount>=1000)
+			System.out.println("Discount price: " + discount*0.75 + " rub."); //write discount price
+		else
+			System.out.println("No discount. Price: " + discount + " rub."); //write total price with no discount	
+		
+	}
+
+}

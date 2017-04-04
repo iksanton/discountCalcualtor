@@ -1,0 +1,85 @@
+package discount_calculation;
+
+import java.util.Locale;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class discountCard {
+	
+	public static double enterPrice(double p)  //price input
+	{  
+		int n=0;
+		boolean err1=false;
+	do{		
+		System.out.println("Choose item: ");   //write line	
+		System.out.println("1 Pen");
+		System.out.println("2 Highlighter");
+		System.out.println("3 Pencil");
+		System.out.println("4 Marker pen");
+		Scanner sc = new Scanner(System.in);   //scanner		
+		n = sc.nextInt();                      //read line 		
+
+		if(n>0&&n<5)  {
+			if(n==1){
+				p = 12.50;
+				System.out.println("You,ve chosen Pen. It's price is: "+ p +" rub.");				
+			}
+			if(n==2){
+				p = 25.99;
+				System.out.println("You,ve chosen Highlighter. It's price is: "+ p +" rub.");				
+			}
+			if(n==3){
+				p = 8.99;
+				System.out.println("You,ve chosen Pencil. It's price is: "+ p +" rub.");				
+			}
+			if(n==4){
+				p = 21.50;
+				System.out.println("You,ve chosen Marker pen. It's price is: "+ p +" rub.");				
+			}
+			err1=true;
+			}
+		else{			
+			System.out.println("You,ve entered a wrong number!");				
+		    }		                            		
+		}
+	    while(err1=false);
+		return p; //return price value
+	}
+	
+	public static int enterNumber(int n)                 //number input
+	{			
+		Scanner sc = new Scanner(System.in);             //scanner
+		System.out.println("Enter number of items: ");	 //write line
+		n = sc.nextInt();                                //read line
+		return n;                                        //return value
+	}
+	
+	public static double Summ(double s)                 //get total price
+	{
+		double price = 0;                               
+		int number = 0;
+		double sum;
+		sum = enterPrice(price) * enterNumber(number);  //multiplication of price by number
+		System.out.println("Total: " + sum + " rub.");  //write total price with no discount
+		return sum;                                     //return sum value
+		
+	}
+
+	public static void main(String[] args)                                   //discount calculating
+	{
+		double discount;
+		double total=0;
+
+		discount = Summ(total);
+		
+		/*
+		 * if total price is greater than or equal to 250 the discount is 25%
+		 * otherwise there is no discount
+		 */
+		if (discount>=250)
+			System.out.println("Discount price: " + discount*0.75 + " rub."); //write discount price
+		else
+			System.out.println("No discount. Price: " + discount + " rub.");  //write total price with no discount			
+	}
+
+}
